@@ -25,6 +25,10 @@ int main (int argc, char *argv[])
     port = argv[2];
   }
     /* Build the pipeline */
+    g_print("Building pipeline:\n"
+            "\tHost = %s\n"
+            "\tPort = %s\n",
+            host.c_str(), port.c_str());
     std::string pipeString = "v4l2src device=/dev/video0 ! "
           "video/x-raw, format=(string)I420, width=640,height=480, framerate=40/1 ! "
           "nvvidconv ! "
